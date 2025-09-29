@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Page – Coffee & Contracts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- (Optional) Font Awesome for the calendar icon) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    /* --- Page Frame --- */
+    body { margin: 0; padding: 24px 0; font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif; }
+    .page { width: 1200px; margin: 0 auto; }
+
+    /* --- Featured Image (80% of page width, centered) --- */
+    .featured-wrap { display: flex; justify-content: center; margin-bottom: 24px; }
+    .featured {
+      width: 80%;
+      aspect-ratio: 16/9;        /* 1920x1080 aspect */
+      border: 1px dashed #bbb;
+      display: grid;
+      place-items: center;
+      background: #f7f7f7;
+      color: #666;
+      text-align: center;
+      padding: 0;
+      overflow: hidden;
+    }
+    .featured img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* --- Two Column Layout (60/40) --- */
+    .columns { display: grid; grid-template-columns: 3fr 2fr; gap: 24px; margin-bottom: 48px; }
+
+    /* --- Left Column Content --- */
+    .meta-date { font-size: 16px; color: #333; margin: 0 0 8px; }
+    h1 { margin: 0 0 12px; font-size: 28px; font-weight: 700; }
+    .short-desc { margin: 0 0 24px; color: #444; }
+
+    h2 { margin: 24px 0 8px; font-size: 20px; }
+    .dt-row { display: flex; align-items: center; gap: 8px; font-size: 16px; }
+    .time-line { margin-top: 4px; color: #333; }
+
+    .location-name { font-weight: 700; }
+    .address { margin-top: 4px; color: #333; }
+
+    /* Use details/summary to unfold the map */
+    details.map { margin-top: 10px; }
+    details.map summary {
+      list-style: none;
+      cursor: pointer;
+      color: #1a73e8;           /* blue link style */
+      display: inline-block;
+      padding: 4px 0;
+      outline: none;
+    }
+    details.map summary::-webkit-details-marker { display: none; }
+
+    .map-embed {
+      margin-top: 10px;
+      aspect-ratio: 16/9;
+      width: 100%;
+      border: 1px solid #ccc;
+      background: #fafafa;
+      display: grid;
+      place-items: center;
+      color: #777;
+      font-size: 14px;
+    }
+    .map-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .full-desc { margin-top: 24px; color: #333; line-height: 1.5; white-space: pre-line; }
+
+    /* --- Right Column Card --- */
+    .side-card {
+      border: 1px solid #ccc; padding: 16px; border-radius: 6px;
+      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px;
+    }
+    .price-area { display: flex; flex-direction: column; gap: 4px; }
+    .price { font-weight: 700; }
+    .price-sub { font-size: 14px; color: #444; }
+    .cta { display: inline-block; padding: 10px 14px; border: 1px solid #000; background: #eee; text-decoration: none; color: #000; border-radius: 4px; }
+
+    /* --- More Events --- */
+    .more-wrap { text-align: center; margin: 24px 0 16px; }
+    .more-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .event-card {
+      border: 1px solid #ddd; border-radius: 6px; padding: 12px; display: grid; gap: 8px;
+    }
+    .event-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: 1px dashed #bbb;
+      background: #f5f5f5;
+      display: grid; place-items: center; color: #666; font-size: 14px; overflow: hidden;
+    }
+    .event-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .event-title { font-weight: 700; }
+    .event-loc, .event-short { color: #444; font-size: 14px; }
+    .event-cta { margin-top: 8px; display: inline-block; padding: 8px 10px; border: 1px solid #000; background: #eee; text-decoration: none; color: #000; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Top Featured Image (80% width, centered) -->
+    <div class="featured-wrap">
+      <div class="featured">
+        <img src="https://d34hmiuaex7c0.cloudfront.net/6151/uploads/class_course_featured_1758904763001.png" alt="Coffee & Contracts featured image" />
+      </div>
+    </div>
+
+    <!-- Two Columns: Left 60% / Right 40% -->
+    <div class="columns">
+
+      <!-- LEFT COLUMN (60%) -->
+      <section>
+        <p class="meta-date">Saturday, October 11</p>
+        <h1>Coffee &amp; Contracts</h1>
+        <p class="short-desc">
+          Join us on Saturday, October 11 at Crepes &amp; Co. Lokal Coffee, Cranford, NJ for a morning of expert insights and real talk on buying, selling, credit repair, and tax prep. Learn from top professionals and connect with others over coffee and light breakfast.
+        </p>
+
+        <h2>Date and Time</h2>
+        <div class="dt-row">
+          <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+          <span style="font-size:16px">Saturday, October 11 • 10AM – 12PM EST</span></div>
+
+        <h2>Location</h2>
+        <div class="location-name"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Crepes &amp; Co. Lokal Coffee</div>
+        <div class="address">103 Miln St., Cranford, NJ 07016</div>
+
+        <!-- Get Directions unfolds an actual Google Map embed -->
+        <details class="map">
+          <summary>Get Directions</summary>
+          <div class="map-embed" aria-label="Map">
+            <iframe
+              title="Google Map - Crepes & Co. Lokal Coffee"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=103%20Miln%20St.,%20Cranford,%20NJ%2007016&output=embed">
+            </iframe>
+          </div>
+        </details>
+
+        <div class="full-desc">
+Start your Saturday with fresh coffee, great conversations, and practical financial strategies at Coffee & Contracts: Real Talk on Buying & Selling. This interactive event brings together a panel of trusted professionals—including a real estate broker, mortgage expert, tax advisor, credit repair specialist, home inspector, and financial advisor—who will share timely insights as we close out 2025 and prepare for 2026.
+
+You’ll learn about:
+The current real estate market and what to expect in the year ahead
+Tips for building and repairing credit
+Smart strategies for getting ready for tax season
+How to position yourself for long-term real estate and financial success
+Along with valuable takeaways, you’ll enjoy a light breakfast and plenty of time for meaningful networking with local professionals and community members.
+
+✨ Space is limited—reserve your spot today and set yourself up for success in 2026!
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN (40%) -->
+      <aside>
+        <div class="side-card">
+          <div class="price-area">
+            <div class="price">$30</div>
+            <div class="price-sub">October 11 • 10AM EST</div>
+          </div>
+          <a class="cta" href="javascript:void(0)">Register Now</a>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- More Events -->
+    <div class="more-wrap">
+      <h2>More Events</h2>
+    </div>
+
+    <section class="more-grid">
+      <!-- Card 1 -->
+      <article class="event-card">
+        <div class="event-thumb">
+          <img src="https://d34hmiuaex7c0.cloudfront.net/6151/uploads/class_course_featured_1758904763001.png" alt="Coffee & Contracts featured image" />
+        </div>
+        <div class="event-title">Coffee &amp; Contracts</div>
+        <div class="event-loc">Crepes &amp; Co. Lokal Coffee, 103 Miln St., Cranford, NJ, 07016</div>
+        <div class="event-short">
+          Join us on Saturday, October 11 at Crepes &amp; Co. Lokal Coffee, Cranford, NJ for a morning of expert insights and real talk on buying, selling, credit repair, and tax prep. Learn from top professionals and connect with others over coffee and light breakfast.
+        </div>
+        <a class="event-cta" href="javascript:void(0)">Register Now</a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="event-card">
+        <div class="event-thumb">
+          <img src="https://d34hmiuaex7c0.cloudfront.net/6151/uploads/class_course_featured_1758904763001.png" alt="Coffee & Contracts featured image" />
+        </div>
+        <div class="event-title">Coffee &amp; Contracts</div>
+        <div class="event-loc">Crepes &amp; Co. Lokal Coffee, 103 Miln St., Cranford, NJ, 07016</div>
+        <div class="event-short">
+          Join us on Saturday, October 11 at Crepes &amp; Co. Lokal Coffee, Cranford, NJ for a morning of expert insights and real talk on buying, selling, credit repair, and tax prep. Learn from top professionals and connect with others over coffee and light breakfast.
+        </div>
+        <a class="event-cta" href="javascript:void(0)">Register Now</a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="event-card">
+        <div class="event-thumb">
+          <img src="https://d34hmiuaex7c0.cloudfront.net/6151/uploads/class_course_featured_1758904763001.png" alt="Coffee & Contracts featured image" />
+        </div>
+        <div class="event-title">Coffee &amp; Contracts</div>
+        <div class="event-loc">Crepes &amp; Co. Lokal Coffee, 103 Miln St., Cranford, NJ, 07016</div>
+        <div class="event-short">
+          Join us on Saturday, October 11 at Crepes &amp; Co. Lokal Coffee, Cranford, NJ for a morning of expert insights and real talk on buying, selling, credit repair, and tax prep. Learn from top professionals and connect with others over coffee and light breakfast.
+        </div>
+        <a class="event-cta" href="javascript:void(0)">Register Now</a>
+      </article>
+    </section>
+
+  </div>
+</body>
+</html>
