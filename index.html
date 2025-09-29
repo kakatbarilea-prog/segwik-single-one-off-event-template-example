@@ -116,7 +116,20 @@
 
     .event-title { font-weight: 700; }
     .event-loc, .event-short { color: #444; font-size: 14px; }
-    .event-cta { margin-top: 8px; display: inline-block; padding: 8px 10px; border: 1px solid #000; background: #eee; text-decoration: none; color: #000; border-radius: 4px; }
+      .event-cta {
+  margin-top: 8px;
+  display: inline-flex;           /* flex so we can align text */
+  justify-content: center;        /* center horizontally */
+  align-items: center;            /* center vertically */
+  padding: 8px 16px;
+  border: 1px solid #000;
+  background: #eee;
+  text-decoration: none;
+  color: #000;
+  border-radius: 4px;
+  min-width: 120px;               /* optional: gives button some width */
+  text-align: center;             /* fallback for multi-line text */
+}
   </style>
 </head>
 <body>
